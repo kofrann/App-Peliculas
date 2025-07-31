@@ -30,7 +30,7 @@ function Main({
       width: '100%',
       maxWidth: 1100,
       margin: '0 auto',
-      padding: '32px 16px 48px 16px',
+      padding: '48px 16px 48px 16px',
       minHeight: '70vh',
       display: 'flex',
       flexDirection: 'column',
@@ -38,6 +38,7 @@ function Main({
       boxSizing: 'border-box'
     }}>
       <form
+        className="form-buscar"
         onSubmit={e => {
           e.preventDefault();
           if (searchTerm.trim()) fetchMovies(searchTerm);
@@ -46,39 +47,20 @@ function Main({
       >
         <input
           type="text"
+          className="input-buscar"
           placeholder="Buscar película o serie..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
-          style={{ padding: 12, width: '70%', maxWidth: 400, marginRight: 12, borderRadius: 8, border: '1px solid #ccc', fontSize: 18, textAlign: 'center' }}
         />
-        <button type="submit" style={{ padding: '12px 24px', fontSize: 18, borderRadius: 8 }}>Buscar</button>
+        <button type="submit" className="btn-buscar">Buscar</button>
       </form>
       {isLoading && <p style={{ fontSize: 18 }}>Cargando...</p>}
       {error && <p style={{ color: 'red', fontSize: 18 }}>{error}</p>}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-        gap: 28,
-        width: '100%',
-        maxWidth: 1100,
-        margin: '0 auto',
-        marginTop: 10
-      }}>
+      <div className="movies-grid">
         {movies.map((movie) => (
           <div
             key={movie.id}
-            style={{
-              background: '#fff',
-              borderRadius: 12,
-              boxShadow: '0 2px 12px rgba(0,0,0,0.10)',
-              padding: 16,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              minHeight: 340,
-              cursor: 'pointer',
-              transition: 'transform 0.1s',
-            }}
+            className="movie-card"
             onClick={() => setSelectedMovie(movie)}
             title="Ver reseña"
           >
@@ -86,15 +68,13 @@ function Main({
               <img
                 src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                 alt={movie.title}
-                style={{ width: '100%', height: 270, objectFit: 'cover', borderRadius: 8, marginBottom: 12 }}
+                className="movie-poster"
               />
             ) : (
-              <div style={{ width: '100%', height: 270, background: '#eee', borderRadius: 8, marginBottom: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', fontSize: 16 }}>
-                Sin imagen
-              </div>
+              <div className="movie-noimage">Sin imagen</div>
             )}
-            <h3 style={{ fontSize: 20, margin: '0 0 10px 0', textAlign: 'center', fontWeight: 600 }}>{movie.title}</h3>
-            <p style={{ fontSize: 15, color: '#555', textAlign: 'center', margin: 0 }}>{movie.release_date ? movie.release_date.slice(0, 4) : 'Sin año'}</p>
+            <h3 className="movie-title">{movie.title}</h3>
+            <p className="movie-year">{movie.release_date ? movie.release_date.slice(0, 4) : 'Sin año'}</p>
           </div>
         ))}
       </div>
