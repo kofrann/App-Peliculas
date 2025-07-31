@@ -1,9 +1,138 @@
+/* Card de película */
+.movie-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 340px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.movie-noimage {
+  width: 100%;
+  height: 270px;
+  background: #eee;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 16px;
+}
+
+.movie-title {
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.movie-year {
+  font-size: 15px;
+  color: #555;
+  text-align: center;
+  margin: 0;
+}
+/* Input y botón responsivos para el buscador */
+ .input-buscar {
+   padding: 12px;
+   width: 70%;
+   max-width: 400px;
+   margin-right: 12px;
+   margin-bottom: 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  text-align: center;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .form-buscar {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0;
+  }
+  .input-buscar {
+    width: 70%;
+    max-width: 400px;
+    margin-right: 12px;
+    margin-bottom: 0;
+  }
+  .btn-buscar {
+    width: 64px;
+    max-width: none;
+    margin-left: 0;
+    font-size: 15px;
+    padding: 10px 16px;
+    height: 38px;
+  }
+}
+@media (min-width: 601px) and (max-width: 899px) {
+  .input-buscar {
+    width: 80%;
+    max-width: 320px;
+    font-size: 16px;
+    padding: 11px;
+    margin-right: 10px;
+  }
+  .btn-buscar {
+    font-size: 16px;
+    padding: 11px 20px;
+  }
+}
+@media (max-width: 899px) {
+  main {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+/* Botón Buscar: negro con letras blancas */
+ .btn-buscar {
+   background: #181c24;
+   color: #fff;
+   border-radius: 8px;
+   border: 1px solid #181c24;
+   padding: 12px 24px;
+   font-size: 18px;
+   font-weight: 500;
+   font-family: inherit;
+   cursor: pointer;
+   transition: background 0.2s, color 0.2s;
+   width: 90px;
+   max-width: none;
+   margin-left: 0;
+   text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+ .btn-buscar:hover, .btn-buscar:focus {
+   background: #B119FA;
+   color: #fff;
+   border-color: #B119FA;
+   box-shadow: 0 0 16px 4px rgba(177, 25, 250, 0.25);
+   filter: brightness(1.15);
+}
 /* Efecto hover para las cards de película */
-.movie-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-  border: 1.5px solid #646cff;
-  z-index: 2;
+ .movie-card:hover {
+   transform: translateY(-8px) scale(1.03);
+   box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+   border: none;
+   z-index: 2;
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 /* Navbar responsivo */
@@ -106,7 +235,7 @@
     gap: 28px !important;
   }
 }
-/* Solo 2 columnas de películas en pantallas pequeñas */
+/* 1 columna de películas en pantallas pequeñas */
 @media (max-width: 375px) {
   .movies-grid {
     display: grid !important;
@@ -123,6 +252,13 @@
     max-width: 100% !important;
     width: 100% !important;
     box-sizing: border-box;
+  }
+  .btn-buscar {
+    font-size: 13px;
+    padding: 6px 10px;
+    width: 70px;
+    height: 32px;
+    margin-left: 6px;
   }
 }
 :root {
