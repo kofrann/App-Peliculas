@@ -1,5 +1,132 @@
+/* Efecto hover para las cards de película */
+.movie-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  border: 1.5px solid #646cff;
+  z-index: 2;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Navbar responsivo */
+.navbar-app {
+  width: 100%;
+  background: #181c24;
+  padding: 1.2rem 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 16px;
+}
+.navbar-logo {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  margin-left: 0;
+}
+.navbar-title {
+  color: #fff;
+  text-align: left;
+  margin: 0;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+@media (max-width: 600px) {
+  .navbar-app {
+    padding: 0.7rem 0;
+  }
+  .navbar-content {
+    gap: 12px;
+    padding: 0 8px;
+  }
+  .navbar-logo {
+    height: 44px;
+    width: 44px;
+  }
+  .navbar-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+}
+/* Footer responsivo */
+.footer-app {
+  width: 100%;
+  background: #181c24;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 16px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2000;
+}
+@media (max-width: 600px) {
+  .footer-app {
+    font-size: 13px;
+    padding: 0.7rem 0.2rem;
+    position: sticky;
+    left: unset;
+    bottom: 0;
+  }
+}
+/* 3 columnas de películas en tablets */
+@media (min-width: 600px) and (max-width: 899px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+/* Grid de películas: 4 columnas por defecto */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+}
+/* 4 columnas de películas en pantallas grandes */
+@media (min-width: 900px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 28px !important;
+  }
+}
+/* Solo 2 columnas de películas en pantallas pequeñas */
+@media (max-width: 375px) {
+  .movies-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .movies-grid > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 

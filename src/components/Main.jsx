@@ -55,10 +55,7 @@ function Main({
       </form>
       {isLoading && <p style={{ fontSize: 18 }}>Cargando...</p>}
       {error && <p style={{ color: 'red', fontSize: 18 }}>{error}</p>}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-        gap: 28,
+      <div className="movies-grid" style={{
         width: '100%',
         maxWidth: 1100,
         margin: '0 auto',
@@ -67,6 +64,7 @@ function Main({
         {movies.map((movie) => (
           <div
             key={movie.id}
+            className="movie-card"
             style={{
               background: '#fff',
               borderRadius: 12,
@@ -77,7 +75,7 @@ function Main({
               alignItems: 'center',
               minHeight: 340,
               cursor: 'pointer',
-              transition: 'transform 0.1s',
+              transition: 'transform 0.1s, box-shadow 0.2s',
             }}
             onClick={() => setSelectedMovie(movie)}
             title="Ver reseña"
