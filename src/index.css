@@ -293,7 +293,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background: url('/peliculas-terror.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {

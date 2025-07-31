@@ -15,7 +15,7 @@ function App() {
   async function fetchMovies(query) {
     setIsLoading(true);
     setError(null);
-    const API_KEY = "53ebd6aca73d8bb8a1599057fe392fd6"; // Reemplaza con tu clave de TMDB
+    const API_KEY = "53ebd6aca73d8bb8a1599057fe392fd6"; 
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`;
     try {
       const response = await fetch(url);
