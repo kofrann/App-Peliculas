@@ -73,13 +73,7 @@ function Main({
             ) : (
               <div className="movie-noimage">Sin imagen</div>
             )}
-<<<<<<< HEAD
-            <h3 className="movie-title">{movie.title}</h3>
-            <p className="movie-year">{movie.release_date ? movie.release_date.slice(0, 4) : 'Sin año'}</p>
-=======
-            <h3 style={{ fontSize: 20, margin: '0 0 10px 0', textAlign: 'center', fontWeight: 600 }}>{movie.title}</h3>
-            <p style={{ fontSize: 15, color: '#555', textAlign: 'center', margin: 0, lineHeight: 1.2, padding: 0 }}>{movie.release_date ? movie.release_date.slice(0, 4) : 'Sin año'}</p>
->>>>>>> 56f8f74 (Se cambia favicon, se agrega fondo, se cambia el color de los subtitulos, la imagen de la card se achica para que caiga en la pantalla)
+ 56f8f74 (Se cambia favicon, se agrega fondo, se cambia el color de los subtitulos, la imagen de la card se achica para que caiga en la pantalla)
           </div>
         ))}
       </div>
