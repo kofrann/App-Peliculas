@@ -73,7 +73,6 @@ function Main({
             ) : (
               <div className="movie-noimage">Sin imagen</div>
             )}
- 56f8f74 (Se cambia favicon, se agrega fondo, se cambia el color de los subtitulos, la imagen de la card se achica para que caiga en la pantalla)
           </div>
         ))}
       </div>
