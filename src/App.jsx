@@ -11,7 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+//consumimos la api de tmdb con una api key del mismo sitio, registrandonos en este.
   async function fetchMovies(query) {
     setIsLoading(true);
     setError(null);
