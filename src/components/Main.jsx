@@ -1,3 +1,4 @@
+import '../styles/index.scss';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
@@ -74,6 +75,15 @@ function Main({
             ) : (
               <div className="movie-noimage">Sin imagen</div>
             )}
+            <h3 className="movie-title">{movie.title}</h3>
+            <p className="movie-year">
+              {movie.release_date ? movie.release_date.slice(0, 4) : 'Sin año'}
+            </p>
+            <p className="movie-rating">
+              {movie.vote_average !== undefined && Number(movie.vote_average.toFixed(1)) !== 0.0
+                ? `Nota: ${movie.vote_average.toFixed(1)}`
+                : 'Sin nota'}
+            </p>
           </div>
         ))}
       </div>

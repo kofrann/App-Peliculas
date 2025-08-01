@@ -3,27 +3,16 @@ import React from 'react';
 function Navbar() {
   return (
     <nav className="navbar-app">
-      <div className="navbar-content" style={{ position: 'relative', width: '100%' }}>
+      <div className="navbar-content" style={{ width: '100%', alignItems: 'center', display: 'flex', gap: 18 }}>
         <img
           src="/clap.png"
           alt="Logo Clap"
           className="navbar-logo"
-          style={{
-            position: 'absolute',
-            left: 0,
-            top: '-10px',
-            height: '130px',
-            width: '130px',
-            objectFit: 'contain',
-            marginLeft: 18,
-            zIndex: 2100
-          }}
+          style={{ height: '70px', width: '70px', objectFit: 'contain', marginLeft: 0 }}
         />
-        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <h1 className="navbar-title" style={{ margin: 0 }}>
-            Buscador de Películas y Series
-          </h1>
-        </div>
+        <h1 className="navbar-title" style={{ margin: 0, flex: 1, textAlign: 'left', paddingLeft: 18 }}>
+          Buscador de Películas y Series
+        </h1>
       </div>
     </nav>
   );
