@@ -12,12 +12,13 @@
   transition: transform 0.1s, box-shadow 0.2s;
 }
 
-.movie-poster {
-  width: 100%;
-  height: 270px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
+ .movie-poster {
+   width: 100%;
+   aspect-ratio: 154/224;
+   object-fit: cover;
+   border-radius: 8px;
+   margin-bottom: 12px;
+   display: block;
 }
 
 .movie-noimage {
@@ -210,11 +211,18 @@
     bottom: 0;
   }
 }
-/* 3 columnas de películas en tablets */
+/* 4 columnas de películas en tablets */
 @media (min-width: 600px) and (max-width: 899px) {
   .movies-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 28px !important;
+  }
+}
+/* 3 columnas de películas en celulares */
+@media (max-width: 599px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
   }
 }
 /* Grid de películas: 4 columnas por defecto */
