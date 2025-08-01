@@ -156,13 +156,14 @@ button:focus-visible {
 .navbar-app {
   width: 100%;
   background: #181c24;
-  padding: 1.2rem 0;
+  padding: 0.4rem 0 0.4rem 0;
   margin-bottom: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.12);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2000;
+  overflow: visible;
 }
 .navbar-content {
   display: flex;
@@ -175,10 +176,14 @@ button:focus-visible {
   padding: 0 16px;
 }
 .navbar-logo {
-  height: 70px;
-  width: 70px;
+  height: 109px;
+  width: 109px;
   object-fit: contain;
   margin-left: 0;
+  margin-bottom: -36px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  z-index: 2100;
+  position: relative;
 }
 .navbar-title {
   color: #fff;
