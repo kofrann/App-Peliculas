@@ -57,6 +57,7 @@ function Main({
       {isLoading && <p style={{ fontSize: 18 }}>Cargando...</p>}
       {error && <p style={{ color: 'red', fontSize: 18 }}>{error}</p>}
       <div className="movies-grid">
+        {/* Renderizado de las películas */}
         {movies.map((movie) => (
           <div
             key={movie.id}
