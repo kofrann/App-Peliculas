@@ -10,7 +10,9 @@ function Main({
   error,
   fetchMovies,
   setSelectedMovie,
-  selectedMovie
+  selectedMovie,
+  favoritos,
+  setFavoritos
 }) {
   const [showScroll, setShowScroll] = useState(false);
 
@@ -149,6 +151,26 @@ function Main({
             <h2 style={{ marginTop: 0, marginBottom: 12, textAlign: 'center', color: 'red' }}>{selectedMovie.title}</h2>
             <p style={{ fontSize: 15, color: '#555', textAlign: 'center', lineHeight: 1.2, margin: '0 0 6px 0', padding: 0 }}><b>Año:</b> {selectedMovie.release_date ? selectedMovie.release_date.slice(0, 4) : 'Sin año'}</p>
             <p style={{ fontSize: 16, color: '#222', textAlign: 'center', lineHeight: 1.25, margin: 0, padding: 0 }}><b>Reseña:</b> {selectedMovie.overview ? selectedMovie.overview : 'Sin reseña disponible.'}</p>
+            {/* Botón agregar/quitar favoritos */}
+            {favoritos.some(fav => fav.id === selectedMovie.id) ? (
+              <button
+                style={{ marginTop: 18, background: '#c1121f', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontSize: 16, cursor: 'pointer', fontWeight: 600 }}
+                onClick={() => {
+                  setFavoritos(favoritos.filter(fav => fav.id !== selectedMovie.id));
+                }}
+              >
+                Quitar de favoritos
+              </button>
+            ) : (
+              <button
+                style={{ marginTop: 18, background: '#181c24', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontSize: 16, cursor: 'pointer', fontWeight: 600 }}
+                onClick={() => {
+                  setFavoritos([...favoritos, selectedMovie]);
+                }}
+              >
+                Agregar a favoritos
+              </button>
+            )}
           </div>
         </div>
       )}
