@@ -120,7 +120,12 @@ function App() {
             ) : (
               <ul style={{ listStyle: 'none', padding: 0, width: '100%' }}>
                 {favoritos.map((movie) => (
-                  <li key={movie.id} style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <li key={movie.id} style={{ marginBottom: 12, display: 'flex', alignItems: 'center', gap: 12, cursor: 'pointer' }}
+                      onClick={() => {
+                        setSelectedMovie(movie);
+                        setShowFavoritos(false);
+                      }}
+                  >
                     {movie.poster_path ? (
                       <img src={`https://image.tmdb.org/t/p/w92${movie.poster_path}`} alt={movie.title} style={{ width: 40, height: 60, objectFit: 'cover', borderRadius: 4 }} />
                     ) : (
