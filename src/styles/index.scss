@@ -1,46 +1,80 @@
-// --- Nota de película ---
-.movie-rating {
-  color: #c1121f !important;
-  font-weight: bold !important;
-}
-// Archivo principal de estilos SASS para App-Peliculas
-@import 'variables';
-@import 'mixins';
+// --- Estilos migrados desde App.css ---
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 
-:root {
-  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-  &:hover {
-    color: #535bf2;
+@media (max-width: 412px) {
+  .navbar-app {
+    padding: 0.7rem 0;
+  }
+  .navbar-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+  }
+  .navbar-logo {
+    display: block;
+    margin: 0 auto 8px auto;
+    height: 100px;
+    width: 100px;
+  }
+  .navbar-title {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+  .footer-app {
+    font-size: 13px;
+    padding: 0.7rem 0.2rem;
+    position: sticky;
+    left: unset;
+    bottom: 0;
+  }
+  .form-buscar {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0;
+    padding-top: 40px;
+  }
+  .input-buscar {
+    width: 70%;
+    max-width: 400px;
+    margin-right: 12px;
+    margin-bottom: 0;
+  }
+  .btn-buscar {
+    width: 64px;
+    max-width: none;
+    margin-left: 0;
+    font-size: 15px;
+    padding: 10px 16px;
+    height: 38px;
+    font-size: 13px;
+    padding: 6px 10px;
+    width: 70px;
+    height: 32px;
+    margin-left: 6px;
+  }
+  .movies-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+  }
+  .movies-grid > * {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box;
   }
 }
-
-
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -218,19 +252,14 @@ button:focus-visible {
 }
 
 // --- Media queries optimizadas ---
-@media (max-width: 899px) {
+
+@media (min-width: 413px) and (max-width: 1024px) {
   main {
     padding-top: 48px !important;
     padding-bottom: 48px !important;
   }
   .movies-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media (min-width: 600px) and (max-width: 899px) {
-  .movies-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 28px !important;
   }
   .input-buscar {
@@ -244,9 +273,6 @@ button:focus-visible {
     font-size: 16px;
     padding: 11px 20px;
   }
-}
-
-@media (max-width: 600px) {
   .navbar-app {
     padding: 0.7rem 0;
   }
@@ -255,16 +281,16 @@ button:focus-visible {
     padding: 0 8px;
   }
   .navbar-logo {
-    height: 44px;
-    width: 44px;
+    height: 80px;
+    width: 80px;
   }
   .navbar-title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     letter-spacing: 0.5px;
   }
   .footer-app {
-    font-size: 13px;
-    padding: 0.7rem 0.2rem;
+    font-size: 15px;
+    padding: 1rem 0.2rem;
     position: sticky;
     left: unset;
     bottom: 0;
@@ -272,67 +298,14 @@ button:focus-visible {
   .form-buscar {
     flex-direction: row !important;
     align-items: center !important;
-    gap: 0;
-  }
-  .input-buscar {
-    width: 70%;
-    max-width: 400px;
-    margin-right: 12px;
-    margin-bottom: 0;
-  }
-  .btn-buscar {
-    width: 64px;
-    max-width: none;
-    margin-left: 0;
-    font-size: 15px;
-    padding: 10px 16px;
-    height: 38px;
-  }
-  .movies-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 18px !important;
+    gap: 8px;
+    padding-top: 20px;
   }
 }
 
-@media (max-width: 599px) {
-  .movies-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 18px !important;
-  }
-}
 
-@media (min-width: 900px) {
-  .movies-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 28px !important;
-  }
-}
 
-@media (max-width: 375px) {
-  .movies-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .movies-grid > * {
-    min-width: 0 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    box-sizing: border-box;
-  }
-  .btn-buscar {
-    font-size: 13px;
-    padding: 6px 10px;
-    width: 70px;
-    height: 32px;
-    margin-left: 6px;
-  }
-}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
