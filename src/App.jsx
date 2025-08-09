@@ -49,7 +49,7 @@ function App() {
       display: 'flex',
       flexDirection: 'column',
       background: '#f5f6fa',
-      paddingTop: '80px',
+      paddingTop: '60px',
       paddingBottom: '70px'
     }}>
       <Navbar />

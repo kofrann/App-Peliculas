@@ -112,12 +112,14 @@ function Main({
               borderRadius: 12,
               maxWidth: 420,
               width: '90%',
-              padding: 28,
+              maxHeight: '80vh', // Limitar altura del modal
+              padding: '20px 24px 24px 24px', // Reducir padding vertical
               boxShadow: '0 4px 24px rgba(0,0,0,0.2)',
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center'
+              alignItems: 'center',
+              overflowY: 'auto' // Scroll en todo el modal si es necesario
             }}
             onClick={e => e.stopPropagation()}
           >
@@ -141,20 +143,22 @@ function Main({
               <img
                 src={`https://image.tmdb.org/t/p/w300${selectedMovie.poster_path}`}
                 alt={selectedMovie.title}
-                style={{ width: '100%', maxWidth: 154, height: 224, objectFit: 'cover', borderRadius: 8, marginBottom: 23 }}
+                style={{ width: '100%', maxWidth: 100, height: 150, objectFit: 'cover', borderRadius: 8, marginBottom: 6 }}
               />
             ) : (
-              <div style={{ width: 220, height: 320, background: '#eee', borderRadius: 8, marginBottom: 18, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', fontSize: 16 }}>
+              <div style={{ width: 100, height: 150, background: '#eee', borderRadius: 8, marginBottom: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#888', fontSize: 14 }}>
                 Sin imagen
               </div>
             )}
-            <h2 style={{ marginTop: 0, marginBottom: 12, textAlign: 'center', color: 'red' }}>{selectedMovie.title}</h2>
+            <h2 style={{ marginTop: 0, marginBottom: 6, textAlign: 'center', color: 'red', fontSize: '1.2rem' }}>{selectedMovie.title}</h2>
             <p style={{ fontSize: 15, color: '#555', textAlign: 'center', lineHeight: 1.2, margin: '0 0 6px 0', padding: 0 }}><b>Año:</b> {selectedMovie.release_date ? selectedMovie.release_date.slice(0, 4) : 'Sin año'}</p>
-            <p style={{ fontSize: 16, color: '#222', textAlign: 'center', lineHeight: 1.25, margin: 0, padding: 0 }}><b>Reseña:</b> {selectedMovie.overview ? selectedMovie.overview : 'Sin reseña disponible.'}</p>
+            <div className="modal-description-scroll">
+              <p style={{ fontSize: 16, color: '#222', textAlign: 'center', lineHeight: 1.25, margin: 0, padding: 0 }}><b>Reseña:</b> {selectedMovie.overview ? selectedMovie.overview : 'Sin reseña disponible.'}</p>
+            </div>
             {/* Botón agregar/quitar favoritos */}
             {favoritos.some(fav => fav.id === selectedMovie.id) ? (
               <button
-                style={{ marginTop: 18, background: '#c1121f', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontSize: 16, cursor: 'pointer', fontWeight: 600 }}
+                style={{ marginTop: 8, background: '#c1121f', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 20px', fontSize: 15, cursor: 'pointer', fontWeight: 600 }}
                 onClick={() => {
                   setFavoritos(favoritos.filter(fav => fav.id !== selectedMovie.id));
                 }}
@@ -163,7 +167,7 @@ function Main({
               </button>
             ) : (
               <button
-                style={{ marginTop: 18, background: '#181c24', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 22px', fontSize: 16, cursor: 'pointer', fontWeight: 600 }}
+                style={{ marginTop: 8, background: '#181c24', color: '#fff', border: 'none', borderRadius: 8, padding: '10px 20px', fontSize: 15, cursor: 'pointer', fontWeight: 600 }}
                 onClick={() => {
                   setFavoritos([...favoritos, selectedMovie]);
                 }}
